@@ -63,11 +63,8 @@ jobs:
         run: |
           kubectl create deployment demo-app --image=demo-app:latest
           kubectl expose deployment demo-app --type=LoadBalancer --port=8080
-          kubectl get deployment demo-app
-          kubectl describe deployment demo-app
-          kubectl get events 
-#          kubectl scale --replicas=3 deployment/demo-app
-#          kubectl rollout status deployment/demo-app
+          kubectl scale --replicas=3 deployment/demo-app
+          kubectl rollout status deployment/demo-app
 
       - name: Post deployment test
         run: |
