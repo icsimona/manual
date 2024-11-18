@@ -61,10 +61,7 @@ jobs:
 
       - name: Deploy to Minikube (simulating ECS)
         run: |
-          kubectl create deployment demo-app --image=demo-app:latest
-          kubectl expose deployment demo-app --type=LoadBalancer --port=8080
-          kubectl scale --replicas=3 deployment/demo-app
-          kubectl rollout status deployment/demo-app
+          kubectl apply -f deployment.yaml
 
       - name: Post deployment test
         run: |
