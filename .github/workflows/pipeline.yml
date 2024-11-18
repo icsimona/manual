@@ -1,1 +1,9 @@
-Let's setup this pipeline
+name: CI/CD Pipeline (Demo App)
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
