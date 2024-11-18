@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: demo-app
-          image: demo-app:latest
+          image: icsimonna/manual:latest
           ports:
             - containerPort: 8080
 ---
