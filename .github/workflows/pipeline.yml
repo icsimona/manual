@@ -41,6 +41,7 @@ jobs:
       - name: Build and Push Docker Image
         run: |
           docker build -t demo-app:latest .
+          docker tag demo-app:latest icsimonna/manual:latest
           docker push icsimonna/manual
 
 #  deploy-simulation:
