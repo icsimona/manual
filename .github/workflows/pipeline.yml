@@ -64,6 +64,7 @@ jobs:
           kubectl create deployment demo-app --image=demo-app:latest
           kubectl expose deployment demo-app --type=LoadBalancer --port=8080
           kubectl get events
+          kubectl describe deployment demo-app
           #kubectl rollout status deployment/demo-app
 
       - name: Post deployment test
