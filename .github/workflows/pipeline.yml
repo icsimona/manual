@@ -23,10 +23,10 @@ jobs:
         run: cd app && npm install
 
       - name: Run Linting
-        run: npm run lint || echo "No linting configured"
+        run: cd app && npm run lint || echo "No linting configured"
 
       - name: Run Tests
-        run: npm test || echo "No tests specified"
+        run: cd app && npm test || echo "No tests specified"
 
   docker-build-and-push:
     runs-on: ubuntu-latest
