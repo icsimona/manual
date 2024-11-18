@@ -69,7 +69,6 @@ jobs:
 
       - name: Deploy to Minikube (simulating ECS)
         run: |
-          #comment
           kubectl apply -f deployment.yaml
           kubectl rollout status deployment/demo-app
 
