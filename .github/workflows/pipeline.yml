@@ -58,3 +58,16 @@ jobs:
           sudo mv kubectl /usr/local/bin/
           sudo chmod +x /usr/local/bin/kubectl
           minikube start --driver=docker
+
+      - name: Deploy to Minikube (simulating ECS)
+        run: |
+          kubectl create deployment demo-app --image=demo-app:latest
+          kubectl expose deployment demo-app --type=LoadBalancer --port=8080
+          kubectl rollout status deployment/demo-app
+
+      - name: Post deployment test
+        run: |
+          kubectl get pods
+          kubectl port-forward svc/demo-app 8080:8080 &
+          sleep 5
+          curl -f http://localhost:8080/health || exit 1
