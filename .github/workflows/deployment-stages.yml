@@ -32,6 +32,7 @@ jobs:
       environment: ${{ matrix.environment }}
       appname: ${{ inputs.appname }}
 
-  #  send-slack-notification:
-  #    needs: deployment
-  #    uses: ./.github/workflows/send-slack-notification.yml
+  send-slack-notification:
+    needs: deployment
+    uses: ./.github/workflows/send-slack-notification.yml
+    secrets: inherit

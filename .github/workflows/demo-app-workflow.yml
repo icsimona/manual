@@ -12,4 +12,5 @@ jobs:
     uses: ./.github/workflows/deployment-stages.yml
     with:
       appname: demo-app
+      alerts-channel: '#get-a-job'
     secrets: inherit
