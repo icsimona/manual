@@ -55,5 +55,6 @@ jobs:
       matrix:
         environment: [staging, production]
     uses: ./.github/workflows/reusable-deployment.yml
+    needs: docker-build-and-push
     with:
       environment: ${{ matrix.environment }}
