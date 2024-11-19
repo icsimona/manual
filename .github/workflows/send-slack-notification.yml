@@ -10,7 +10,8 @@ jobs:
       - name: Post to a Slack channel
         id: slack
         uses: slackapi/slack-github-action@v1.23.0
-        env: ${{ secrets.SLACK_BOT_TOKEN }}
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
         with:
           channel-id: ${{ secrets.SLACK_CHANNEL_ID }}
           payload: |  
