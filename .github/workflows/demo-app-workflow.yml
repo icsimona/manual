@@ -1,0 +1,15 @@
+name: CI/CD Pipeline (Demo App)
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:
+  workflow:
+    uses: ./.github/workflows/deployment-stages.yml
+    with:
+      appname: demo-app
+    secrets: inherit
