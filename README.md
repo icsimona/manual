@@ -49,6 +49,6 @@ Assuming that we'll be building more than one service and that we'll want to dep
 
 ### 4. What's in that alert?
 
-For the alert there a lot of room for improvement. I've added it just as a demo to showcase the things that I find important in a notification.
+For the alert there is a lot of room for improvement. I've added it just as a demo to showcase the things that I find important in a notification.
 
 ![image](https://github.com/user-attachments/assets/24076983-6c36-435c-9701-d6e8d366eb7f)
