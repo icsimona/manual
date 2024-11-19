@@ -8,24 +8,76 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Post to a Slack channel
-        uses: slackapi/slack-github-action@v2.0.0
+        id: slack
+        uses: slackapi/slack-github-action@v1.23.0
+        env: ${{ secrets.SLACK_BOT_TOKEN }}
         with:
-          method: chat.postMessage
-          token: ${{ secrets.SLACK_BOT_TOKEN }}
-          payload: |
-            channel: ${{ secrets.SLACK_CHANNEL_ID }}
-            text: "GitHub Action build result: ${{ job.status }} :red_circle:
-            blocks:
-              - type: "divider"
-              - type: "section"
-                text:
-                  type: "mrkdwn"
-                  text: "Here is your commit."
-                accessory:
-                  type: "button"
-                  value: "${{ github.event.pull_request.html_url || github.event.head_commit.url }}"
-                  action_id: "button_action"
-                  text:
-                    type: "text"
-                    text: "Click me"
-                    emoji: true
+          channel-id: ${{ secrets.SLACK_CHANNEL_ID }}
+          payload: |  
+            {
+            "text": "GitHub Action build result: ${{ job.status }} :red_circle:"
+            "blocks": [
+              {
+                "type": "section",
+                "text": {
+                  "type": "plain_text",
+                  "emoji": true,
+                  "text": "Github workflow result is: *failed*"
+                }
+              },
+              {
+                "type": "divider"
+              },
+              {
+                "type": "section",
+                "text": {
+                  "type": "mrkdwn",
+                  "text": "Here is your workflow run."
+                },
+                "accessory": {
+                  "type": "button",
+                  "text": {
+                    "type": "plain_text",
+                    "text": "Click Me",
+                    "emoji": true
+                  },
+                  "value": "click_me_123",
+                  "action_id": "button-action"
+                }
+              },
+              {
+                "type": "section",
+                "text": {
+                  "type": "mrkdwn",
+                  "text": "Here is your commit."
+                },
+                "accessory": {
+                  "type": "button",
+                  "text": {
+                    "type": "plain_text",
+                    "text": "Click Me",
+                    "emoji": true
+                  },
+                  "value": "click_me_123",
+                  "action_id": "button-action"
+                }
+              },
+              {
+                "type": "section",
+                "text": {
+                  "type": "mrkdwn",
+                  "text": "Here is the troubleshooting guide"
+                },
+                "accessory": {
+                  "type": "button",
+                  "text": {
+                    "type": "plain_text",
+                    "text": "Click Me",
+                    "emoji": true
+                  },
+                  "value": "click_me_123",
+                  "action_id": "button-action"
+                }
+              }
+            ]
+          }
