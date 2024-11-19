@@ -9,12 +9,12 @@ on:
       - main
 jobs:
   lint-test-build:
-    uses: ./.github/workflows/templates/lint-test-build.yml
+    uses: ./.github/workflows/lint-test-build.yml
     with:
       appname: demo-app
 
   docker-build-and-push:
-    uses: ./.github/workflows/templates/docker-build-and-push.yml
+    uses: ./.github/workflows/docker-build-and-push.yml
     needs: lint-test-build
     with:
       appname: demo-app
@@ -26,12 +26,12 @@ jobs:
       fail-fast: true
       matrix:
         environment: [staging, production]
-    uses: ./.github/workflows/templates/deployment.yml
+    uses: ./.github/workflows/deployment.yml
     needs: docker-build-and-push
     with:
       environment: ${{ matrix.environment }}
 
   send-slack-notification:
     needs: deployment
-    uses: ./.github/workflows/templates/send-slack-notifications.yml
+    uses: ./.github/workflows/send-slack-notifications.yml
 
