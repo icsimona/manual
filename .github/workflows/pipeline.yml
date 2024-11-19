@@ -52,6 +52,8 @@ jobs:
 
   deployment:
     strategy:
+      max-parallel: 1
+      fail-fast: true
       matrix:
         environment: [staging, production]
     uses: ./.github/workflows/reusable-deployment.yml

@@ -6,6 +6,10 @@ on:
       environment:
         required: true
         type: string
+      staging-run:
+        required: true
+        type: boolean
+        default: false
 
 jobs:
   deploy-simulation:
