@@ -14,9 +14,18 @@ jobs:
           token: ${{ secrets.SLACK_BOT_TOKEN }}
           payload: |
             channel: ${{ secrets.SLACK_CHANNEL_ID }}
-            text: "GitHub Action build result: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}"
+            text: "GitHub Action build result: ${{ job.status }} :red_circle:
             blocks:
+              - type: "divider"
               - type: "section"
                 text:
                   type: "mrkdwn"
-                  text: "GitHub Action build result: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}"
+                  text: "Here is your commit."
+                accessory:
+                  type: "button"
+                  value: "${{ github.event.pull_request.html_url || github.event.head_commit.url }}"
+                  action_id: "button_action"
+                  text:
+                    type: "text"
+                    text: "Click me"
+                    emoji: true

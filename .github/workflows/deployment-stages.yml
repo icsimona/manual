@@ -33,7 +33,7 @@ jobs:
       appname: ${{ inputs.appname }}
 
   send-slack-notification:
-    needs: deployment
+    needs: [lint-test-build, docker-build-and-push, deployment]
     if: ${{ failure() }}
     uses: ./.github/workflows/send-slack-notification.yml
     secrets: inherit
