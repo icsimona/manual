@@ -9,24 +9,9 @@ on:
       - main
 jobs:
   lint-test-build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16'
-
-      - name: Install dependencies
-        run: cd app && npm install
-
-      - name: Run Linting
-        run: cd app && npm run lint || echo "No linting configured"
-
-      - name: Run Tests
-        run: cd app && npm test || echo "No tests specified"
+    uses: ./.github/workflows/lint-test-build.yml
+    with:
+      appname: demo-app
 
   docker-build-and-push:
     runs-on: ubuntu-latest
@@ -56,7 +41,8 @@ jobs:
       fail-fast: true
       matrix:
         environment: [staging, production]
-    uses: ./.github/workflows/reusable-deployment.yml
+    uses: ./.github/workflows/deployment.yml
     needs: docker-build-and-push
     with:
       environment: ${{ matrix.environment }}
+

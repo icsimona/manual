@@ -5,11 +5,11 @@ FROM node:16
 WORKDIR /usr/src/app
 
 # Copy the package.json and install dependencies
-COPY app/package*.json ./
+COPY demo-app/package*.json ./
 RUN npm install
 
 # Copy the rest of the app code into the container
-COPY app/ .
+COPY demo-app/ .
 
 # Expose the application port
 EXPOSE 8080
