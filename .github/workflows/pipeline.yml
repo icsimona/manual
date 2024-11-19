@@ -33,5 +33,5 @@ jobs:
 
   send-slack-notification:
     needs: deployment
-    uses: ./.github/workflows/send-slack-notifications.yml
+    uses: ./.github/workflows/send-slack-notification.yml
 
