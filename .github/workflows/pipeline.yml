@@ -31,7 +31,7 @@ jobs:
     with:
       environment: ${{ matrix.environment }}
 
-  send-slack-notification:
-    needs: deployment
-    uses: ./.github/workflows/send-slack-notification.yml
+#  send-slack-notification:
+#    needs: deployment
+#    uses: ./.github/workflows/send-slack-notification.yml
 
