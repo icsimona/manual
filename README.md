@@ -1,6 +1,6 @@
 ## What you'll find in this repository
 
-1. **./.github-workflows** - all the deployment files
+1. **.github-workflows** - all the deployment files
 2. **demo-app** - contains a very rudimentary java application that listens to port 8080, exposes a health check and a home page
 3. **Dockerfile** - configures the docker image for the java application
 4. **deployment.yml** - configures the deployment and the service kuberenetes objects
