@@ -34,6 +34,6 @@ jobs:
 
   send-slack-notification:
     needs: deployment
-    if: failed()
+    if: ${{ failure() }}
     uses: ./.github/workflows/send-slack-notification.yml
     secrets: inherit
