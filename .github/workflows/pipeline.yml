@@ -54,6 +54,6 @@ jobs:
     strategy:
       matrix:
         environment: [staging, production]
-    uses: .github/workflows/reusable-deployment.yml
+    uses: ./.github/workflows/reusable-deployment.yml
     with:
       environment: ${{ matrix.environment }}
