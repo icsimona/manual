@@ -1,0 +1,8 @@
+name: Send Slack Notification
+
+on:
+  workflow_call:
+    inputs:
+      appname:
+        required: true
+        type: string
