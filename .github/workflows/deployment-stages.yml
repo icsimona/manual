@@ -8,14 +8,14 @@ on:
         type: string
 
 jobs:
-  lint-test-build:
+  lint-test:
     uses: ./.github/workflows/lint-test.yml
     with:
       appname: ${{ inputs.appname }}
 
   docker-build-and-push:
     uses: ./.github/workflows/docker-build-and-push.yml
-    needs: lint-test-build
+    needs: lint-test
     with:
       appname: ${{ inputs.appname }}
     secrets: inherit
