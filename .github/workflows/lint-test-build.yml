@@ -11,9 +11,6 @@ jobs:
   lint-test-build:
     runs-on: ubuntu-latest
     steps:
-      - name: Fail pipeline
-        run: |
-          exit 1
 
       - name: Checkout repository
         uses: actions/checkout@v2
