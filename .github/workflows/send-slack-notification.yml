@@ -20,7 +20,7 @@ jobs:
                   "text": {
                     "type": "plain_text",
                     "emoji": true,
-                    "text": "Looks like you have a scheduling conflict with this event:"
+                    "text": "Workflow ${{ github.workflow }} has status: *${{ job.status }}* :red_circle: "
                   }
                 },
                 {
