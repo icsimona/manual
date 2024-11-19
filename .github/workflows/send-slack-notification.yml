@@ -21,7 +21,7 @@ jobs:
                   "text": {
                     "type": "plain_text",
                     "emoji": true,
-                    "text": "Github workflow result is: *failed*"
+                    "text": "Github workflow result is: failed"
                   }
                 },
                 {
@@ -40,7 +40,7 @@ jobs:
                       "text": "Click Me",
                       "emoji": true
                     },
-                    "value": "click_me_123",
+                    "value": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}",
                     "action_id": "button-action-workflow"
                   }
                 },
@@ -57,7 +57,7 @@ jobs:
                       "text": "Click Me",
                       "emoji": true
                     },
-                    "value": "click_me_124",
+                    "value": "${{ github.event.pull_request.html_url || github.event.head_commit.url }}",
                     "action_id": "button-action-commit"
                   }
                 },
