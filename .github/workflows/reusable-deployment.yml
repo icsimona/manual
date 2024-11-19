@@ -11,17 +11,8 @@ jobs:
   deploy-simulation:
     name: Deploy to ${{ inputs.environment }}
     runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
     steps:
-      - uses: trstringer/manual-approval@v1
-        if: ${{ inputs.environment == 'production' }}
-        with:
-          approvers: icsimona
-          minimum-approvals: 1
-          issue-title: "Deploying to production"
-          issue-body: "Please approve or deny the deployment to production"
-          exclude-workflow-initiator-as-approver: false
-          additional-approved-words: 'y, yes'
-          additional-denied-words: 'n, no'
 
       - name: Checkout repository
         uses: actions/checkout@v2
