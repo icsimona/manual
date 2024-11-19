@@ -18,9 +18,9 @@ jobs:
                 {
                   "type": "section",
                   "text": {
-                    "type": "mrkdwn",
-                    "emoji": false,
-                    "text": "Workflow *${{ github.workflow }}* has status: *failed* :red_circle: "
+                    "type": "plain_text",
+                    "emoji": true,
+                    "text": "Workflow ${{ github.workflow }} has status: failed :red_circle: "
                   }
                 },
                 {
