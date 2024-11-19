@@ -9,7 +9,7 @@
 
 ### 1. Overview
 
-You'll find below a diagram that describes how the pipeline is structured:
+You'll find below a diagram that describes how the deployment process is structured:
 
 ```mermaid
 flowchart TD
@@ -45,4 +45,10 @@ flowchart TD
 Assuming that we'll be building more than one service and that we'll want to deploy it using a pipeline, this setup helps with:
 
 - reusability - aside from the `demo-app-workflow.yml` which is specific to the `demo-app`, we can reuse all the other workflow files in different contexts
-- readability - breaking down the jobs in multiple templates helps with reading the code with more ease, which proves to be useful for newbies or in critical scenarios. 
+- readability - breaking down the jobs in multiple templates helps with reading the code with more ease, which proves to be useful for newbies or in critical scenarios.
+
+### 4. What's in that alert?
+
+For the alert there a lot of room for improvement. I've added it just as a demo to showcase the things that I find important in a notification.
+
+![image](https://github.com/user-attachments/assets/24076983-6c36-435c-9701-d6e8d366eb7f)
