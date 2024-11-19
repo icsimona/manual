@@ -1,0 +1,31 @@
+name: Docker Build And Push
+
+on:
+  workflow_call:
+    inputs:
+      appname:
+        required: true
+        type: string
+
+jobs:
+  docker-build-and-push:
+    runs-on: ubuntu-latest
+    needs: lint-test-build
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build and Push Docker Image
+        run: |
+          docker build -t ${{ inputs.appname }}:latest .
+          docker tag ${{ inputs.appname }}:latest icsimonna/manual:latest
+          docker push icsimonna/manual
